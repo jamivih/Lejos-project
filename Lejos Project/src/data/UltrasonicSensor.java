@@ -1,6 +1,7 @@
 package data;
 
 import lejos.hardware.Button;
+import lejos.hardware.Button;
 import lejos.hardware.Sound;
 import lejos.hardware.lcd.LCD;
 import lejos.hardware.port.SensorPort;

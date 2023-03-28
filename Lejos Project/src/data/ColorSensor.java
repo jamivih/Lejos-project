@@ -1,5 +1,4 @@
 package data;
-import lejos.hardware.Sound;
 import lejos.hardware.port.SensorPort;
 import lejos.robotics.SampleProvider;
 import lejos.utility.Delay;
@@ -16,7 +15,7 @@ public class ColorSensor extends Thread {
         SampleProvider redMode = colorSensor.getRedMode();
 
         // define the black and white threshold values
-        int blackThreshold = 1;
+        int blackThreshold = 10;
         int whiteThreshold = 50;
         
 
@@ -26,11 +25,17 @@ public class ColorSensor extends Thread {
             redMode.fetchSample(redSample, 0);
             float redValue = redSample[0];
             if (redValue < blackThreshold) {
-            	Sound.beep();
+                System.out.println("Black detected");
             } else if (redValue > whiteThreshold) {
-                Sound.buzz();
+                System.out.println("White detected");
             }
+            Delay.msDelay(500);
         }
     }
-    }
 
+    public static void main(String[] args) {
+        // create a new instance of the ColorSensor thread and start it
+        ColorSensor colorSensor = new ColorSensor();
+        colorSensor.start();
+    }
+}
