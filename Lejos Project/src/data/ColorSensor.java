@@ -27,8 +27,11 @@ public class ColorSensor extends Thread {
             float redValue = redSample[0];
             if (redValue < blackThreshold) {
             	Sound.beep();
+            	Delay.msDelay(2000);
+            	
             } else if (redValue > whiteThreshold) {
                 Sound.buzz();
+                Delay.msDelay(2000);
             }
         }
     }
