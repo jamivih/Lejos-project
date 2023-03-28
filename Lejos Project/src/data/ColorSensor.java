@@ -16,8 +16,8 @@ public class ColorSensor extends Thread {
         SampleProvider redMode = colorSensor.getRedMode();
 
         // define the black and white threshold values
-        int blackThreshold = 1;
-        int whiteThreshold = 50;
+        int blackThreshold = 50;
+        int whiteThreshold = 10;
         
 
         // continuously read and print the detected color
