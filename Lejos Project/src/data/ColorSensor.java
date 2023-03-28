@@ -32,10 +32,5 @@ public class ColorSensor extends Thread {
             Delay.msDelay(500);
         }
     }
-
-    public static void main(String[] args) {
-        // create a new instance of the ColorSensor thread and start it
-        ColorSensor colorSensor = new ColorSensor();
-        colorSensor.start();
     }
-}
+
