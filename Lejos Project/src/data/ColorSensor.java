@@ -15,7 +15,7 @@ public class ColorSensor extends Thread {
         SampleProvider redMode = colorSensor.getRedMode();
 
         // define the black and white threshold values
-        int blackThreshold = 10;
+        int blackThreshold = 1;
         int whiteThreshold = 50;
         
 
@@ -29,7 +29,6 @@ public class ColorSensor extends Thread {
             } else if (redValue > whiteThreshold) {
                 System.out.println("White detected");
             }
-            Delay.msDelay(500);
         }
     }
     }
