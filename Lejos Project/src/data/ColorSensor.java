@@ -1,12 +1,13 @@
+package data;
 import lejos.hardware.port.SensorPort;
 import lejos.robotics.SampleProvider;
 import lejos.utility.Delay;
 import lejos.hardware.sensor.EV3ColorSensor;
 
-public class ColorSensor {
-
-    public static void main(String[] args) {
-
+public class ColorSensor extends Thread {
+	
+    @Override
+    public void run() {
         // create a color sensor object on port 1
         EV3ColorSensor colorSensor = new EV3ColorSensor(SensorPort.S1);
 
@@ -16,6 +17,7 @@ public class ColorSensor {
         // define the black and white threshold values
         int blackThreshold = 10;
         int whiteThreshold = 50;
+        
 
         // continuously read and print the detected color
         while (true) {
@@ -29,5 +31,11 @@ public class ColorSensor {
             }
             Delay.msDelay(500);
         }
+    }
+
+    public static void main(String[] args) {
+        // create a new instance of the ColorSensor thread and start it
+        ColorSensor colorSensor = new ColorSensor();
+        colorSensor.start();
     }
 }
