@@ -18,7 +18,7 @@ public class ColorSensor extends Thread {
 
         // define the black and white threshold values
         int blackThreshold = 5;
-        int whiteThreshold = 40;
+        int whiteThreshold = 70;
 
         // continuously read and print the detected color
         while (true) {
@@ -30,7 +30,7 @@ public class ColorSensor extends Thread {
             } else if (redValue > whiteThreshold) {
                 Sound.buzz();
             }
-            Delay.msDelay(2000); // add delay between value checks
+            Delay.msDelay(500); // add delay between value checks
         }
     }
 }
