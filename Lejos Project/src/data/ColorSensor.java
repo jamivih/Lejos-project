@@ -9,7 +9,7 @@ public class ColorSensor extends Thread {
     @Override
     public void run() {
         // create a color sensor object on port 1
-        EV3ColorSensor colorSensor = new EV3ColorSensor(SensorPort.S1);
+        EV3ColorSensor colorSensor = new EV3ColorSensor(SensorPort.S4);
 
         // get the red color mode sample provider
         SampleProvider redMode = colorSensor.getRedMode();
