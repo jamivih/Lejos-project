@@ -30,7 +30,7 @@ public class ColorSensor extends Thread {
             } else if (redValue > whiteThreshold) {
                 Sound.buzz();
             }
-            Delay.msDelay(100); // add delay between value checks
+            Delay.msDelay(2000); // add delay between value checks
         }
     }
 }
