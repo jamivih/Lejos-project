@@ -8,6 +8,9 @@ import lejos.utility.Delay;
 import lejos.hardware.sensor.EV3ColorSensor;
 
 public class ColorSensor extends Thread {
+	
+    private static final EV3ColorSensor colorSensor = new EV3ColorSensor(SensorPort.S4);
+    private static final SampleProvider redMode = colorSensor.getRedMode();
 
     @Override
     public void run() {
@@ -37,5 +40,12 @@ public class ColorSensor extends Thread {
                 Sound.beepSequence();
             }
         }
+    }
+    
+
+    public static float[] getRedSample() {
+        float[] redSample = new float[redMode.sampleSize()];
+        redMode.fetchSample(redSample, 0);
+        return redSample;
     }
  }
