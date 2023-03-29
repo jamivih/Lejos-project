@@ -1,5 +1,6 @@
 package data;
 
+import lejos.hardware.Button;
 import lejos.hardware.Sound;
 import lejos.hardware.port.SensorPort;
 import lejos.robotics.SampleProvider;
@@ -7,7 +8,7 @@ import lejos.utility.Delay;
 import lejos.hardware.sensor.EV3ColorSensor;
 
 public class ColorSensor extends Thread {
-    
+
     @Override
     public void run() {
         // create a color sensor object on port 4
@@ -17,20 +18,24 @@ public class ColorSensor extends Thread {
         SampleProvider redMode = colorSensor.getRedMode();
 
         // define the black and white threshold values
-        int blackThreshold = 5;
-        int whiteThreshold = 70;
+        float blackThreshold = 0.15f;
+        float whiteThreshold = 0.55f;
+
+        Sound.setVolume(10);
 
         // continuously read and print the detected color
-        while (true) {
+        while (Button.ESCAPE.isUp()) {
             float[] redSample = new float[redMode.sampleSize()];
             redMode.fetchSample(redSample, 0);
             float redValue = redSample[0];
-            if (redValue < blackThreshold) {
+
+            if (blackThreshold < redValue && redValue <= whiteThreshold) {
                 Sound.beep();
-            } else if (redValue > whiteThreshold) {
+            } else if (redValue < whiteThreshold) {
                 Sound.buzz();
+            } else if (redValue > whiteThreshold) {
+                Sound.beepSequence();
             }
-            Delay.msDelay(500); // add delay between value checks
         }
     }
-}
+ }
