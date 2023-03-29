@@ -2,6 +2,7 @@ package data;
 
 import lejos.hardware.Button;
 import lejos.hardware.Sound;
+import lejos.hardware.motor.Motor;
 import lejos.hardware.port.SensorPort;
 import lejos.robotics.SampleProvider;
 import lejos.utility.Delay;
@@ -9,8 +10,8 @@ import lejos.hardware.sensor.EV3ColorSensor;
 
 public class ColorSensor extends Thread {
 	
-    private static final EV3ColorSensor colorSensor = new EV3ColorSensor(SensorPort.S4);
-    private static final SampleProvider redMode = colorSensor.getRedMode();
+//    private static final EV3ColorSensor colorSensor = new EV3ColorSensor(SensorPort.S4);
+//    private static final SampleProvider redMode = colorSensor.getRedMode();
 
     @Override
     public void run() {
@@ -33,19 +34,20 @@ public class ColorSensor extends Thread {
             float redValue = redSample[0];
 
             if (blackThreshold < redValue && redValue <= whiteThreshold) {
-                Sound.beep();
+            	Motor.A.setSpeed(100);
+            	Motor.B.setSpeed(100);
+            	Motor.A.forward();
+            	Motor.B.forward();
             } else if (redValue < whiteThreshold) {
-                Sound.buzz();
+            	Motor.A.setSpeed(100);
+            	Motor.B.setSpeed(30);
+            	Motor.A.forward();
+            	Motor.B.forward();
             } else if (redValue > whiteThreshold) {
-                Sound.beepSequence();
+            	Motor.A.setSpeed(30);
+            	Motor.B.setSpeed(100);
+            	Motor.A.forward();            	
+            	Motor.B.forward();
             }
-        }
-    }
-    
-
-    public static float[] getRedSample() {
-        float[] redSample = new float[redMode.sampleSize()];
-        redMode.fetchSample(redSample, 0);
-        return redSample;
-    }
+        }}
  }
