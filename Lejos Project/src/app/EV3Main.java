@@ -3,17 +3,17 @@ package app;
 import data.*;
 
 public class EV3Main {
-
+	private static DataExchange DE;
+	private static ColorSensor LFObj;
+	private static ObstacleDetector ODObj;
+	
 	public static void main(String[] args) {
 		
-		UltrasonicSensor obd = new UltrasonicSensor(null);	
-		ColorSensor colorSensor = new ColorSensor();
-		
-		obd.start();
-		
-        colorSensor.start();
-
-
+		DE = new DataExchange();
+		ODObj = new ObstacleDetector(DE);	
+		LFObj = new ColorSensor(DE);		
+		ODObj.start();		
+		LFObj.start();
 	}
 
 }

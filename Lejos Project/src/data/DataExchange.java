@@ -8,15 +8,18 @@ public class DataExchange {
 	
 	public DataExchange() {}
 	
-	public void setObstacleDetected(boolean status){
+	public void setObstacleDetected(boolean status) {
+		
 		obstacleDetected = status;
-		}
-		public boolean getObstacleDetected(){
+}
+	public boolean getObstacleDetected(){
 		return obstacleDetected;
-		}
-		public void setCMD(int command){
+	}
+		
+	public void setCMD(int command){
 		CMD = command;
-		}
+	}
+		
 		public int getCMD(){
 		return CMD;
 	}
