@@ -1,5 +1,6 @@
 package data;
 
+import lejos.hardware.Button;
 import lejos.hardware.Sound;
 import lejos.hardware.lcd.LCD;
 import lejos.hardware.port.SensorPort;
@@ -10,7 +11,7 @@ public class ObstacleDetector extends Thread{
 	private DataExchange DEObj;
 	
 	private EV3UltrasonicSensor us;
-	private final int securityDistance = 25;
+	private final int securityDistance = 13;
 
 	public ObstacleDetector(DataExchange DE){
 		DEObj = DE;
@@ -21,7 +22,7 @@ public class ObstacleDetector extends Thread{
 		SampleProvider sp = us.getDistanceMode();
 		float[] distanceSample = new float[sp.sampleSize()];
 		
-	while (true) {	
+	while (Button.ESCAPE.isUp()) {	
 		sp.fetchSample(distanceSample, 0);
 		float distance = distanceSample[0] * 100;
 		if (distance > securityDistance) {
@@ -31,12 +32,6 @@ public class ObstacleDetector extends Thread{
 			
 			DEObj.setCMD(0);
 			
-			//LCD Output 
-			LCD.drawString("Object found!", 0,1);
-			LCD.refresh();
-			Sound.twoBeeps();
-			Sound.twoBeeps();
-
 			}
 		
 		
