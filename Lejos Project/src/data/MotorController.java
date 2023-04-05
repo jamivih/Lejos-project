@@ -41,6 +41,12 @@ public class MotorController {
     public void performObstacleAvoidance() {
         moveBackward(150);
         Delay.msDelay(2000);
+           
+        turnLeft(30, 130);
+        Delay.msDelay(1500);
+        
+        moveForward(200);
+        Delay.msDelay(2000);
         
         turnRight(130, 30);
         Delay.msDelay(1500);
@@ -48,13 +54,7 @@ public class MotorController {
         moveForward(200);
         Delay.msDelay(2000);
         
-        turnLeft(30, 130);
-        Delay.msDelay(1500);
-        
-        moveForward(200);
-        Delay.msDelay(2000);
-        
-        turnLeft(30, 130);
+        turnRight(130, 30);
         Delay.msDelay(1500);
         
         moveForward(200);

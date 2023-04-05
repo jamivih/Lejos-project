@@ -36,7 +36,6 @@ public class ObstacleDetector extends Thread {
             }
             
             if (Button.ESCAPE.isDown()) {
-                // exit program
                 System.exit(0);
             }
         }
