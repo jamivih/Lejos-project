@@ -34,7 +34,7 @@ public class ColorSensor extends Thread {
         float blackThreshold = 0.15f;
         float whiteThreshold = 0.25f;
     
-        long timeThreshold = 1000;
+        long timeThreshold = 750;
         
         
 
@@ -47,16 +47,16 @@ public class ColorSensor extends Thread {
             
 
             if (blackThreshold <= redValue && redValue <= whiteThreshold) {
-                motorController.moveForward(100);
+                motorController.moveForward(125);
                 lastLineTime = System.currentTimeMillis();
             } else {
 
                 if (System.currentTimeMillis() - lastLineTime > timeThreshold) {
-                    motorController.turnRight(175, 25);
+                    motorController.turnRight(175, 15);
                 } else if (redValue < whiteThreshold) {
-                    motorController.turnRight(175, 25);
+                    motorController.turnRight(175, 15);
                 } else {
-                    motorController.turnLeft(25, 175);
+                    motorController.turnLeft(15, 175);
                 }
             }
             
