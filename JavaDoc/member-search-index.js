@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"data","c":"DataExchange","l":"DataExchange()","u":"%3Cinit%3E()"},{"p":"data","c":"DataExchange","l":"getCMD()"},{"p":"data","c":"DataExchange","l":"getObstacleDetected()"},{"p":"data","c":"DataExchange","l":"setCMD(int)"},{"p":"data","c":"DataExchange","l":"setObstacleDetected(boolean)"}];updateSearchResults();
