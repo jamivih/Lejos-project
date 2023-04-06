@@ -42,11 +42,23 @@ public class MotorController {
         moveBackward(150);
         Delay.msDelay(2000);
            
-        turnLeft(75, 150);
-        Delay.msDelay(3000);
+        turnLeft(30, 130);
+        Delay.msDelay(1500);
         
-        turnRight(150, 75);
-        Delay.msDelay(5000);
+        moveForward(200);
+        Delay.msDelay(2000);
+        
+        turnRight(130, 30);
+        Delay.msDelay(1500);
+        
+        moveForward(200);
+        Delay.msDelay(2000);
+        
+        turnRight(130, 30);
+        Delay.msDelay(1500);
+        
+        moveForward(200);
+        Delay.msDelay(2000);
         
     }
 }
