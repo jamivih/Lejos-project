@@ -1,12 +1,8 @@
 package data;
 
-
 import lejos.hardware.Button;
-
 import lejos.hardware.port.SensorPort;
-
 import lejos.robotics.SampleProvider;
-
 import lejos.hardware.sensor.EV3ColorSensor;
 
 
