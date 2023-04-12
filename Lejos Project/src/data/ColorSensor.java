@@ -9,8 +9,17 @@ import lejos.robotics.Color;
 import lejos.robotics.SampleProvider;
 import lejos.utility.Delay;
 import lejos.hardware.sensor.EV3ColorSensor;
+<<<<<<< Updated upstream
 import lejos.hardware.sensor.EV3UltrasonicSensor;
 
+=======
+
+/**
+ * 
+ * @author Joonas
+ *
+ */
+>>>>>>> Stashed changes
 public class ColorSensor extends Thread {
     DataExchange DEObj;
     private EV3ColorSensor colorSensor;
@@ -19,11 +28,20 @@ public class ColorSensor extends Thread {
     
     private long lastLineTime = 0;
 
+    /**
+     * @param DE DataExchange for the EV3 Color sensor
+     */
     public ColorSensor(DataExchange DE) {
         DEObj = DE;
         colorSensor = new EV3ColorSensor(SensorPort.S3);
     }
+<<<<<<< Updated upstream
     
+=======
+    /**
+     * Executable code for the Color sensor
+     */
+>>>>>>> Stashed changes
     @Override
     public void run() {
         // create a color sensor object on port 4      
