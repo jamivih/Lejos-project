@@ -19,6 +19,7 @@ public class ColorSensor extends Thread {
     }
     //LOL
 
+
     @Override
     public void run() {
         // create a color sensor object on port 4

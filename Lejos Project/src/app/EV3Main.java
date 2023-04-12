@@ -28,6 +28,6 @@ public class EV3Main {
 		if (System.currentTimeMillis() >= 60000) {
             System.exit(0);
 	}
-	
+	}
 
 }
