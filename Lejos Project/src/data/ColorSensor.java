@@ -36,8 +36,8 @@ public class ColorSensor extends Thread {
         SampleProvider redMode = colorSensor.getRedMode();
 
         // define the black and white threshold values
-        float blackThreshold = 0.15f;
-        float whiteThreshold = 0.25f;
+        float blackThreshold = 0.10f;
+        float whiteThreshold = 0.40f;
     
         long timeThreshold = 1000;
         
