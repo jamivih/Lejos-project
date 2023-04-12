@@ -17,6 +17,7 @@ public class ColorSensor extends Thread {
         DEObj = DE;
         colorSensor = new EV3ColorSensor(SensorPort.S3);
     }
+    //LOL
 
     @Override
     public void run() {
