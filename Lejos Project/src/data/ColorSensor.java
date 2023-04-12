@@ -4,7 +4,10 @@ import lejos.hardware.Button;
 import lejos.hardware.port.SensorPort;
 import lejos.robotics.SampleProvider;
 import lejos.hardware.sensor.EV3ColorSensor;
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 import lejos.hardware.sensor.EV3UltrasonicSensor;
 
 public class ColorSensor extends Thread {
@@ -14,15 +17,16 @@ public class ColorSensor extends Thread {
     private MotorController motorController = new MotorController();
     
     private long lastLineTime = 0;
-=======
 
+<<<<<<< Updated upstream
 public class ColorSensor extends Thread {
 	DataExchange DEObj;
 	private EV3ColorSensor colorSensor;
 //    private EV3UltrasonicSensor us;
 	private MotorController motorController = new MotorController();
+=======
+>>>>>>> Stashed changes
 
-	private long lastLineTime = 0;
 
 	public ColorSensor(DataExchange DE) {
 		DEObj = DE;
