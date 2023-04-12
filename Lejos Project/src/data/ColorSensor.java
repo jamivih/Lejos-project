@@ -1,21 +1,16 @@
 package data;
 
-import java.io.File;
 import lejos.hardware.Button;
-import lejos.hardware.Sound;
-import lejos.hardware.motor.Motor;
 import lejos.hardware.port.SensorPort;
-import lejos.robotics.Color;
 import lejos.robotics.SampleProvider;
-import lejos.utility.Delay;
 import lejos.hardware.sensor.EV3ColorSensor;
-<<<<<<< Updated upstream
+
 import lejos.hardware.sensor.EV3UltrasonicSensor;
 
 public class ColorSensor extends Thread {
     DataExchange DEObj;
     private EV3ColorSensor colorSensor;
-    private EV3UltrasonicSensor us;
+//    private EV3UltrasonicSensor us;
     private MotorController motorController = new MotorController();
     
     private long lastLineTime = 0;
@@ -26,7 +21,6 @@ public class ColorSensor extends Thread {
 	private EV3ColorSensor colorSensor;
 //    private EV3UltrasonicSensor us;
 	private MotorController motorController = new MotorController();
->>>>>>> Stashed changes
 
 	private long lastLineTime = 0;
 
