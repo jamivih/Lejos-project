@@ -24,6 +24,10 @@ public class EV3Main {
 		LFObj = new ColorSensor(DE);
 		ODObj.start();
 		LFObj.start();
+		
+		if (System.currentTimeMillis() >= 60000) {
+            System.exit(0);
 	}
+	
 
 }
