@@ -26,5 +26,4 @@ public class EV3Main {
 		LFObj.start();
 		
 	}
-
 }

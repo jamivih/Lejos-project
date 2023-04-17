@@ -8,20 +8,30 @@ import lejos.hardware.port.SensorPort;
 import lejos.robotics.SampleProvider;
 import lejos.hardware.sensor.EV3ColorSensor;
 
-
+/**
+ * 
+ * @author Joonas
+ *
+ */
 public class ColorSensor extends Thread {
     DataExchange DEObj;
     private EV3ColorSensor colorSensor;
-//    private EV3UltrasonicSensor us;
     private MotorController motorController = new MotorController();
     
     private long lastLineTime = 0;
 
+    /**
+     * @param DE DataExchange for the EV3 Color sensor
+     */
     public ColorSensor(DataExchange DE) {
         DEObj = DE;
         colorSensor = new EV3ColorSensor(SensorPort.S3);
     }
-    
+
+    /**
+     * Executable code for the Color sensor
+     */
+
     @Override
     public void run() {
         // create a color sensor object on port 4      
@@ -29,8 +39,8 @@ public class ColorSensor extends Thread {
         SampleProvider redMode = colorSensor.getRedMode();
 
         // define the black and white threshold values
-        float blackThreshold = 0.15f;
-        float whiteThreshold = 0.25f;
+        float blackThreshold = 0.10f;
+        float whiteThreshold = 0.40f;
     
         long timeThreshold = 1500;
         
