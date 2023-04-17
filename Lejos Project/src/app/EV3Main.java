@@ -24,11 +24,6 @@ public class EV3Main {
 		LFObj = new ColorSensor(DE);
 		ODObj.start();
 		LFObj.start();
-<<<<<<< Updated upstream
-	}
-
-=======
 		
-	}
->>>>>>> Stashed changes
+  }
 }
