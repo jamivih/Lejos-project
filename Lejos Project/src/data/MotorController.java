@@ -64,13 +64,13 @@ public class MotorController {
     }
 
     public void performObstacleAvoidance() {
-        moveBackward(150);
-        Delay.msDelay(2000);
            
         turnLeft(75, 150);
-        Delay.msDelay(3000);
+        Delay.msDelay(2000);
         
         turnRight(150, 75);
-        Delay.msDelay(5000);
+        Delay.msDelay(4000);
+        
+
     }
 }

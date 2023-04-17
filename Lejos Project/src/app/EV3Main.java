@@ -25,9 +25,5 @@ public class EV3Main {
 		ODObj.start();
 		LFObj.start();
 		
-		if (System.currentTimeMillis() >= 60000) {
-            System.exit(0);
-	}
-	}
-
+  }
 }

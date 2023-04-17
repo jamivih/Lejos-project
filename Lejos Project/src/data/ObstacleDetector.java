@@ -14,7 +14,7 @@ public class ObstacleDetector extends Thread {
     private DataExchange DEObj;
     private EV3UltrasonicSensor us;
 
-    private final int securityDistance = 10;
+    private final int securityDistance = 25;
     private MotorController motorController = new MotorController();
 
     /**
@@ -38,7 +38,7 @@ public class ObstacleDetector extends Thread {
             float distance = distanceSample[0] * 100;
             if (distance > securityDistance) {
                 DEObj.setCMD(1);
-            } else {
+            } else if (distance < securityDistance) {
                 DEObj.setCMD(0);
                 LCD.drawString("Avoid Obstacle", 0, 0);
                 LCD.refresh();
