@@ -1,6 +1,9 @@
 package data;
 
+import java.io.File;
+
 import lejos.hardware.Button;
+import lejos.hardware.Sound;
 import lejos.hardware.port.SensorPort;
 import lejos.robotics.SampleProvider;
 import lejos.hardware.sensor.EV3ColorSensor;
@@ -39,7 +42,7 @@ public class ColorSensor extends Thread {
         float blackThreshold = 0.10f;
         float whiteThreshold = 0.40f;
     
-        long timeThreshold = 1000;
+        long timeThreshold = 1500;
         
         
 
@@ -52,16 +55,16 @@ public class ColorSensor extends Thread {
             
 
             if (blackThreshold <= redValue && redValue <= whiteThreshold) {
-                motorController.moveForward(100);
-                lastLineTime = System.currentTimeMillis();
+                motorController.moveForward(150);
+//                lastLineTime = System.currentTimeMillis();
             } else {
-
-                if (System.currentTimeMillis() - lastLineTime > timeThreshold) {
-                    motorController.turnRight(175, 25);
-                } else if (redValue < whiteThreshold) {
-                    motorController.turnRight(175, 25);
+//                if (System.currentTimeMillis() - lastLineTime > timeThreshold) {
+//                    motorController.turnRight(150, 75);
+//                } 
+                if (redValue < whiteThreshold) {
+                    motorController.turnRight(150, 75);
                 } else {
-                    motorController.turnLeft(25, 175);
+                    motorController.turnLeft(75, 150);
                 }
             }
             
