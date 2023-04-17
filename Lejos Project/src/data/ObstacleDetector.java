@@ -1,6 +1,9 @@
 package data;
 
+import java.io.File;
+
 import lejos.hardware.Button;
+import lejos.hardware.Sound;
 import lejos.hardware.lcd.LCD;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3UltrasonicSensor;
@@ -14,7 +17,7 @@ public class ObstacleDetector extends Thread {
     private DataExchange DEObj;
     private EV3UltrasonicSensor us;
 
-    private final int securityDistance = 25;
+    private final int securityDistance = 20;
     private MotorController motorController = new MotorController();
 
     /**
@@ -33,22 +36,36 @@ public class ObstacleDetector extends Thread {
         SampleProvider sp = us.getDistanceMode();
         float[] distanceSample = new float[sp.sampleSize()];
 
+        int count = 0;
         while (true) {
             sp.fetchSample(distanceSample, 0);
             float distance = distanceSample[0] * 100;
             if (distance > securityDistance) {
                 DEObj.setCMD(1);
             } else if (distance < securityDistance) {
+            	count += 1;
+
+                if (count>=2) {
+                    System.exit(0);
+                } else {
+                    	
+                  
                 DEObj.setCMD(0);
                 LCD.drawString("Avoid Obstacle", 0, 0);
                 LCD.refresh();
                 motorController.performObstacleAvoidance();
+
+                Sound.playSample(new File("wth.wav"), Sound.VOL_MAX);
                 DEObj.setCMD(1);
                 LCD.clear();
+
+                
+                }
             }
-            
+
             if (Button.ESCAPE.isDown()) {
                 System.exit(0);
+                
             }
         }
     }
