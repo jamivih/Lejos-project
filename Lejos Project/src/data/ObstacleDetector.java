@@ -37,15 +37,23 @@ public class ObstacleDetector extends Thread {
         float[] distanceSample = new float[sp.sampleSize()];
 
         int count = 0;
+        //while looping the ultrasonic sensor for obstacles
         while (true) {
             sp.fetchSample(distanceSample, 0);
             float distance = distanceSample[0] * 100;
+            
+            //if distance is less than security distance the robot plays the while loop form ColorSensor.java class 
             if (distance > securityDistance) {
                 DEObj.setCMD(1);
+                
+              //if distance is less than security distance the robot performs obstacle avoidance
             } else if (distance < securityDistance) {
             	count += 1;
-
+                Sound.playSample(new File("ohno.wav"), Sound.VOL_MAX);
+                
+                //when detecting obstacles, on the second detection the program closes
                 if (count>=2) {
+                	Sound.playSample(new File("shutdown.wav"), Sound.VOL_MAX);
                     System.exit(0);
                 } else {
                     	
@@ -55,10 +63,9 @@ public class ObstacleDetector extends Thread {
                 LCD.refresh();
                 motorController.performObstacleAvoidance();
 
-                Sound.playSample(new File("wth.wav"), Sound.VOL_MAX);
+
                 DEObj.setCMD(1);
                 LCD.clear();
-
                 
                 }
             }

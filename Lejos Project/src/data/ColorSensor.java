@@ -18,8 +18,6 @@ public class ColorSensor extends Thread {
     private EV3ColorSensor colorSensor;
     private MotorController motorController = new MotorController();
     
-    private long lastLineTime = 0;
-
     /**
      * @param DE DataExchange for the EV3 Color sensor
      */
@@ -41,11 +39,9 @@ public class ColorSensor extends Thread {
         // define the black and white threshold values
         float blackThreshold = 0.10f;
         float whiteThreshold = 0.40f;
-    
-        long timeThreshold = 1500;
+                
+        Sound.playSample(new File("letsgo.wav"), Sound.VOL_MAX);
         
-        
-
         while (true) {
             float[] redSample = new float[redMode.sampleSize()];
             redMode.fetchSample(redSample, 0);

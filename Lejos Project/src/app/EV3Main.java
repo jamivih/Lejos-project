@@ -4,7 +4,8 @@ import data.*;
 
 /**
  * 
- * @author 
+ * @author Group 12
+ * @version 03/28/2023
  *
  */
 public class EV3Main {
