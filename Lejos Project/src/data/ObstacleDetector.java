@@ -5,6 +5,7 @@ import java.io.File;
 import lejos.hardware.Button;
 import lejos.hardware.Sound;
 import lejos.hardware.lcd.LCD;
+import lejos.hardware.motor.Motor;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3UltrasonicSensor;
 import lejos.robotics.SampleProvider;
@@ -49,11 +50,17 @@ public class ObstacleDetector extends Thread {
               //if distance is less than security distance the robot performs obstacle avoidance
             } else if (distance < securityDistance) {
             	count += 1;
-                Sound.playSample(new File("ohno.wav"), Sound.VOL_MAX);
+//                Sound.playSample(new File("ohno.wav"), Sound.VOL_MAX);
                 
                 //when detecting obstacles, on the second detection the program closes
+            	
+//            	if (count>=2) {
+//                	motorController.stop();
+//            	
+//            	}
                 if (count>=2) {
-                	Sound.playSample(new File("shutdown.wav"), Sound.VOL_MAX);
+                           	       
+                	Sound.playSample(new File("shutdown8.wav"), Sound.VOL_MAX);
                     System.exit(0);
                 } else {
                     	

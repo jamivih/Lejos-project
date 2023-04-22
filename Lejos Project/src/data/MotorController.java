@@ -63,13 +63,6 @@ public class MotorController {
 	}
 
 	public void performObstacleAvoidance() {
-
-//        turnLeft(150, 350);
-//        Delay.msDelay(1200);
-//        
-//        turnRight(320, 150);
-//        Delay.msDelay(2400);
-
 		turnRight(150, 90);
 		Delay.msDelay(2500);
 
@@ -77,32 +70,9 @@ public class MotorController {
 		Delay.msDelay(5000);
 
 		turnRight(150, 70);
-		Delay.msDelay(900);
-
-//        turnLeft(150, 300);
-//        Delay.msDelay(800);
-
-//        turnRight(325, 150);
-//        Delay.msDelay(800);
+		Delay.msDelay(1200);
 
 	}
-	// turnLeft(150, 350);
-//  Delay.msDelay(500);
-//  
-//  moveForward(200);
-//  Delay.msDelay(1000);
-//  
-//  turnRight(350, 150);
-//  Delay.msDelay(500);
-//  
-//  moveForward(200);
-//  Delay.msDelay(1000);
-//  
-//  turnRight(350, 150);
-//  Delay.msDelay(500);
-//  
-//  moveForward(200);
-//  Delay.msDelay(1000);
 
 	public void add1() {
 
@@ -110,6 +80,7 @@ public class MotorController {
 		count += 1;
 
 		if (count == 2) {
+
 			System.exit(0);
 		}
 
