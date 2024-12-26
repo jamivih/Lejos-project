@@ -1,4 +1,4 @@
-Lego Line Follower Robot Project
+# Lego Line Follower Robot Project
 
 This repository contains the implementation of a Lego Mindstorms EV3 robot programmed to follow a line, detect objects, and avoid obstacles. The project showcases teamwork and the application of object-oriented programming (OOP) principles, threading, and sensor integration.
 Features and Functionality
